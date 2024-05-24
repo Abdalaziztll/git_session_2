@@ -1,11 +1,11 @@
 import 'package:crud_restapi/config/get_it.dart';
 import 'package:crud_restapi/model/user_model.dart';
+import 'package:crud_restapi/page_with_token.dart';
 import 'package:crud_restapi/service/user_service.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  setup();
+  // setup();
   runApp(MyApp());
 }
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: Login(),
     );
   }
 }
@@ -96,9 +96,9 @@ class UserPage extends StatelessWidget {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
-                  storage
-                      .get<SharedPreferences>()
-                      .setString('name', snapshot.data![index].name!);
+                  // storage
+                  //     .get<SharedPreferences>()
+                  //     .setString('name', snapshot.data![index].name!);
                 },
                 title: Text(snapshot.data![index].name!),
                 leading: (snapshot.data![index].avatar != null)
@@ -136,7 +136,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(storage.get<SharedPreferences>().getString('name')!),
+        // child: Text(storage.get<SharedPreferences>().getString('name')!),
       ),
     );
   }
